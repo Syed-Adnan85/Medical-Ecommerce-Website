@@ -27,6 +27,7 @@ const Login = () => {
     setError(""); 
     localStorage.setItem("isLoggedIn", true);
     navigate("/");
+    window.location.reload();
   };
 
   return (

@@ -6,6 +6,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Products from "./Components/Products";
 import ProductInfo from "./Components/ProductInfo"; 
+import Profile from "./Components/Profile";
 import Footer from "./Components/Footer";
 
 
@@ -28,6 +29,7 @@ import Footer from "./Components/Footer";
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products sendData={SaveThis} />} />
         <Route path="/productinfo" element={<ProductInfo  getData={selectedProduct} />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>

@@ -1,9 +1,17 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Banner from "./Banner";
 import { categories, featuredProducts, deals } from '../data/ProductsData';
 
 const Home = () => {
+
+const  navigate=useNavigate();
+
+  const sendData=(product)=>{
+    navigate("/products", {state: {category: product}
+    });
+  }
+
   return (
     <div className="bg-blue-200	 min-h-screen  flex flex-col">
     <Banner />
@@ -18,6 +26,7 @@ const Home = () => {
         categories.map((category, index) => (
             <div
             key={index}
+            onClick={() => sendData(category.title)}
             className="flex flex-col gap-5 items-center w-52 bg-white p-4 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
             <img
                 src={category.img}
