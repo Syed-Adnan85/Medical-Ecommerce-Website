@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import Products from "./Components/Products";
 import ProductInfo from "./Components/ProductInfo"; 
 import Profile from "./Components/Profile";
+import Cart from "./Components/Cart";
 import Footer from "./Components/Footer";
 
 
@@ -32,6 +33,7 @@ import Footer from "./Components/Footer";
         <Route path="/profile" element={<Profile />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
 <Footer />
     </Router>

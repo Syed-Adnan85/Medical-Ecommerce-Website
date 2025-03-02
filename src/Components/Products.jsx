@@ -1,9 +1,17 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { NavLink ,useLocation, useNavigate} from "react-router-dom";
 import { ProductsList } from "../data/ProductsData";
 
 
 const Products = ({sendData}) => {
+
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(storedCart);
+  }, []);
+
   const location=useLocation();
 
   const category=location.state?.category || "All";
@@ -18,12 +26,14 @@ const AddtoCart = (product) => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   if (!isLoggedIn) {
   navigate("/login");
+  
   }
   else{
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart.push(product);
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Product added to cart");
+      setCartItems(cart);
+      window.dispatchEvent(new Event("cartUpdated"));
   }
 };
 
@@ -60,11 +70,21 @@ const AddtoCart = (product) => {
 
               <p className="text-green-400">In Stock</p>
               
-              <button className="mt-3 bg-blue-500 text-white px-4 py-2 w-full rounded-lg cursor-pointer hover:bg-blue-600"
-              onClick={()=>AddtoCart(product)}
-              >
-              Add to Cart
-            </button>
+              {cartItems.some((item) => item.id === product.id) ? (
+                  <button
+                    className="mt-3 bg-gray-500 text-white px-4 py-2 w-full rounded-lg cursor-pointer hover:bg-gray-600"
+                    onClick={() => navigate("/cart")}
+                  >
+                    ✅ Added (Go to Cart)
+                  </button>
+                ) : (
+                  <button
+                    className="mt-3 bg-blue-500 text-white px-4 py-2 w-full rounded-lg cursor-pointer hover:bg-blue-600"
+                    onClick={() => AddtoCart(product)}
+                  >
+                    Add to Cart
+                  </button>
+                )}
               </>
               
               
