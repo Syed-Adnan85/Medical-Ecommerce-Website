@@ -5,6 +5,7 @@ const Profile = () => {
 const [user, setUser] = useState({});
 const navigate = useNavigate();
 const [profilePic, setProfilePic] = useState("https://static.vecteezy.com/system/resources/previews/029/364/941/non_2x/3d-carton-of-boy-going-to-school-ai-photo.jpg");
+const [showDelete, setShowDelete] = useState(false);
 
 useEffect(() => {  
       const savedPic = localStorage.getItem("profilePic");
@@ -36,6 +37,10 @@ const getProfilePic = (e) => {
     }
     };
 
+const CofirmDelete = () => {
+    setShowDelete(true);    
+}
+
 const DeleteAccount = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("isLoggedIn");
@@ -63,13 +68,29 @@ const LogOut=()=>{
     <h1 className=' text-xl font-bold'><span className='text-black'>Name:</span>  {user.name}</h1>
     <p className='text-xl font-bold'><span>Email:</span> {user.email}</p>
 
-    <button className='bg-blue-500 text-white w-full mb-4 px-6 py-3 font-semibold rounded-lg hover:bg-blue-600' onClick={LogOut}>Log Out</button>
+    <button className='bg-blue-500 text-white w-full mb-4 px-6 py-3 font-semibold rounded-lg hover:bg-blue-600 cursor-pointer' onClick={LogOut}>Log Out</button>
 
-    <button className='bg-red-500 text-white w-full px-6 py-3 font-semibold rounded-lg hover:bg-red-600' onClick={DeleteAccount} >Delete Account</button>
+    <button className='bg-red-500 text-white w-full px-6 py-3 font-semibold rounded-lg hover:bg-red-600 cursor-pointer' onClick={CofirmDelete} >Delete Account</button>
 
    
 
 </div>
+{showDelete && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center w-96">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Are you sure?</h3>
+            <p className="text-gray-600 mb-6">This action will permanently delete your account.</p>
+            <div className="flex justify-center gap-4">
+              <button onClick={DeleteAccount} className="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 font-semibold curaosr-pointer">
+                Delete
+              </button>
+              <button onClick={() => setShowDelete(false)} className="bg-gray-300 px-6 py-2 rounded-lg hover:bg-gray-400 font-semibold cursor-pointer">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -13,19 +14,18 @@ const Footer = () => {
 <div>
 <h3 className='text-white text-lg font-semibold mb-4'>Quick Links</h3>
 <ul className='space-y-2'>
-  <li><a href="/" className='hover:text-blue-400'> Home</a> </li>
-  <li><a href="/products" className='hover:text-blue-400'> Products</a> </li>
-  <li><a href="/about" className='hover:text-blue-400'> About Us</a> </li>
-  <li><a href="/contact" className='hover:text-blue-400'> Contact Us</a> </li>
+  <li><NavLink to="/" className='hover:text-blue-400'> Home</NavLink> </li>
+  <li><NavLink to="/products" className='hover:text-blue-400'> Products</NavLink> </li>
+  <li><NavLink to="/contact" className='hover:text-blue-400'> Contact Us</NavLink> </li>
 </ul>
 </div>
 <div>
           <h3 className="text-white text-lg font-semibold mb-3">Customer Support</h3>
           <ul className="space-y-2">
-            <li><a href="/faqs" className="hover:text-blue-400">FAQs</a></li>
-            <li><a href="/returns" className="hover:text-blue-400">Returns & Exchanges</a></li>
-            <li><a href="/shipping" className="hover:text-blue-400">Shipping Information</a></li>
-            <li><a href="/privacy" className="hover:text-blue-400">Privacy Policy</a></li>
+            <li><NavLink to="/faqs" className="hover:text-blue-400">FAQs</NavLink></li>
+            <li><NavLink to="/returns" className="hover:text-blue-400">Returns & Exchanges</NavLink></li>
+            <li><NavLink to="/shipping" className="hover:text-blue-400">Shipping Information</NavLink></li>
+            <li><NavLink to="/privacy" className="hover:text-blue-400">Privacy Policy</NavLink></li>
           </ul>
         </div>
         <div>
@@ -36,10 +36,10 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
-          <div className="flex space-x-4 mt-4">
-            <a href="#" className="hover:text-blue-400">facebook</a>
-            <a href="#" className="hover:text-blue-400">twitter</a>
-            <a href="#" className="hover:text-blue-400">instagram</a>
+          <div className="flex space-x-10 mt-8 text-2xl">
+            <a href="https://www.facebook.com/"  className="hover:text-blue-400"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://x.com/?lang=en" className="hover:text-blue-400"><i class="ri-twitter-x-fill"></i></a>
+            <a href="https://www.instagram.com/accounts/login/?hl=en" className="hover:text-blue-400"><i class="ri-instagram-fill"></i></a>
           </div>
         </div>
         <div className="text-center text-sm text-gray-500 mt-10 border-t border-gray-700 pt-5">

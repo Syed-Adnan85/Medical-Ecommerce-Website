@@ -6,7 +6,8 @@ import { ProductsList } from "../data/ProductsData";
 const Products = ({sendData}) => {
 
   const [cartItems, setCartItems] = useState([]);
-
+  const [search, setSearch] = useState("");
+  
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(storedCart);
@@ -18,8 +19,12 @@ const Products = ({sendData}) => {
 
   const [selectedCategory, setSelectedCategory] = useState(category);
 
-    const filterProducts =
-    selectedCategory==="All"? ProductsList : ProductsList.filter((product) => product.category === selectedCategory);
+  const filterProducts = ProductsList.filter(
+    (product) =>
+      (selectedCategory === "All" || product.category === selectedCategory) &&
+      product.name.toLowerCase().includes(search.toLowerCase()) 
+  );
+
 
     const navigate=useNavigate();
 const AddtoCart = (product) => {
@@ -42,7 +47,15 @@ const AddtoCart = (product) => {
       <h2 className="text-2xl font-bold text-white text-center mb-6">
         All Products
       </h2>
-
+<div className="flex justify-center mb-6">
+  <input
+   type="text"
+   placeholder="Search for medicines, health products..."
+    className="p-3 rounded-lg w-1/3 outline-none border border-black text-white  "
+    onChange={(e) => setSearch(e.target.value)}
+  
+  />
+</div>
       <div className="flex flex-wrap justify-center gap-6 mb-6">
         <button className="bg-gray-700 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-gray-600" onClick={()=>setSelectedCategory("All")}  >All</button> 
         <button className="bg-gray-700 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-gray-600" onClick={()=>setSelectedCategory("Medicines")}  >Medicines</button> 
@@ -51,11 +64,11 @@ const AddtoCart = (product) => {
         <button className="bg-gray-700 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-gray-600" onClick={()=>setSelectedCategory("Health Devices")}  >Health Devices</button>
       </div>
       <div className="flex flex-wrap justify-center gap-6 mb-6">
-       { filterProducts.map((product, index) => (
+       { filterProducts.length > 0 ? (
 
-      
-       
-          <div key={index} className="bg-white flex flex-col items-center p-2 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+      filterProducts.map((product, index) => (
+
+      <div key={index} className="bg-white flex flex-col items-center p-2 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
               <NavLink to="/productinfo" key={index}
         onClick={()=>sendData(product)}
         >
@@ -94,7 +107,11 @@ const AddtoCart = (product) => {
         
           </div> 
           
-        ))}
+        ))
+       ) : (
+        <p className="text-center text-gray-500 w-full">No products found.</p>
+       )
+      }
      
     </div>
     </div>

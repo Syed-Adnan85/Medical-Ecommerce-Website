@@ -31,16 +31,12 @@ const Navbar = () => {
           MedStore
         </NavLink>
 
-        <div className="flex border border-gray-300 rounded-lg overflow-hidden w-1/3">
-          <input
-            type="text"
-            placeholder="Search for medicines, health products..."
-            className="px-3 py-2 w-full focus:outline-none"
-          />
-          <button className="bg-blue-500 px-4 text-white">
-            <i className="ri-search-line"></i>
-          </button>
+        <div className="flex space-x-6 text-lg font-semibold " >
+          <NavLink to="/" className="text-gray-700 hover:text-blue-600">Home</NavLink>
+          <NavLink to="/products" className="text-gray-700 hover:text-blue-600">Products</NavLink>
+          <NavLink to="/contact" className="text-gray-700 hover:text-blue-600">Contact</NavLink>
         </div>
+
 
         <div className="flex items-center space-x-6">
           <NavLink to="/cart" className="relative text-gray-700 hover:text-blue-600">

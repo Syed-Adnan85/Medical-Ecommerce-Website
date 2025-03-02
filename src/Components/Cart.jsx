@@ -60,40 +60,41 @@ const Cart = () => {
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
       <h2 className="text-2xl font-bold text-center mb-6">Your Cart</h2>
       {cartItems.length === 0 ? (
+       <>
         <p className="text-center text-gray-500">Your cart is empty.</p>
+         <div className="text-center mt-6">
+        <button
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
+              onClick={() => navigate("/products")}
+            >
+              Continue Shopping
+            </button>
+        </div>
+        </>
       ) : (
         <>
           {cartItems.map((item) => (
-            <div key={item.id} className="flex justify-between items-center border-b py-3">
-
-              <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-lg" />
-
-
-              <h3 className="text-lg font-semibold">{item.name}</h3>
-
-     
+            <div key={item.id} className="flex flex-col md:flex-row justify-between items-center border-b py-3 space-y-4 md:space-y-0">
+              <img src={item.image} alt={item.name} className="w-32 h-32 object-cover rounded-lg" />
+              <h3 className="text-lg font-semibold text-center md:text-left">{item.name}</h3>
               <p className="text-gray-600">₹{item.totalPrice}</p>
-
-    
               <div className="flex items-center space-x-2">
                 <button
-                  className="bg-gray-300 px-2 rounded-lg"
+                  className="bg-gray-300 px-3 py-1 rounded-lg cursor-pointer"
                   onClick={() => updateQuantity(item.id, -1)}
                 >
                   -
                 </button>
                 <span>{item.quantity}</span>
                 <button
-                  className="bg-gray-300 px-2 rounded-lg"
+                  className="bg-gray-300 px-3 py-1 rounded-lg cursor-pointer"
                   onClick={() => updateQuantity(item.id, 1)}
                 >
                   +
                 </button>
               </div>
-
-       
               <button
-                className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
+                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 cursor-pointer"
                 onClick={() => removeFromCart(item.id)}
               >
                 Remove
@@ -101,26 +102,29 @@ const Cart = () => {
             </div>
           ))}
 
-      
-          <div className="mt-6 text-center">
+          <div className="mt-6 text-center space-y-5">
             <h3 className="text-xl font-semibold mb-3">Total: ₹{getTotalPrice()}</h3>
             <button
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 mr-4 cursor-pointer"
               onClick={openCheckout}
             >
               Proceed to Checkout
+            </button>
+            <button
+              className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-700 cursor-pointer"
+              onClick={() => navigate("/products")}
+            >
+              Continue Shopping
             </button>
           </div>
         </>
       )}
 
-    
       {showCheckout && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 p-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h3 className="text-xl font-bold text-center">Confirm Checkout</h3>
             <p className="text-center text-gray-600 mt-2">Total Amount: ₹{getTotalPrice()}</p>
-            
             <div className="flex justify-between mt-6">
               <button
                 className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
