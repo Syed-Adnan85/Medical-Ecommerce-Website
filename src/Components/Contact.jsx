@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Contact = () => {
+    scrollTo(0, 0);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [success, setSuccess] = useState(false);
 

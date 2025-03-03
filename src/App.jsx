@@ -29,7 +29,7 @@ import Footer from "./Components/Footer";
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home sendToInfo={SaveThis} /> } />
         <Route path="/products" element={<Products sendData={SaveThis} />} />
         <Route path="/productinfo" element={<ProductInfo  getData={selectedProduct} />} />
         <Route path="/profile" element={<Profile />} />

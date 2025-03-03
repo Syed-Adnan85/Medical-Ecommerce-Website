@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  scrollTo(0, 0);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [error, setError] = useState(""); 
   const navigate = useNavigate();

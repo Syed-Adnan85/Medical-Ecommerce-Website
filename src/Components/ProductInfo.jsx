@@ -8,6 +8,7 @@ const ProductInfo = ({getData}) => {
   const [inCart, setInCart] = useState(false);
 
   useEffect(() => {
+    scrollTo(0, 0);
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     setInCart(cart.some((item) => item.id === getData.id));
   },[getData.id]);
@@ -50,7 +51,7 @@ return;
               <>
               <p className="text-green-400">In Stock</p>
            
-              <button className={` mt-3  text-white px-4 py-2 w-1/3 rounded-lg cursor-pointer ${inCart ? " bg-gray-700 hover:bg-gray-800":
+              <button className={` mt-3  text-white px-4 py-2 w-full md:w-1/3 rounded-lg cursor-pointer ${inCart ? " bg-gray-700 hover:bg-gray-800":
                 " bg-blue-500 hover:bg-blue-600"
               }`}
               onClick={AddtoCart}

@@ -9,6 +9,7 @@ const Products = ({sendData}) => {
   const [search, setSearch] = useState("");
   
   useEffect(() => {
+    scrollTo(0, 0);
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(storedCart);
   }, []);
@@ -47,11 +48,11 @@ const AddtoCart = (product) => {
       <h2 className="text-2xl font-bold text-white text-center mb-6">
         All Products
       </h2>
-<div className="flex justify-center mb-6">
+<div className="flex justify-center mb-6 px-4">
   <input
    type="text"
    placeholder="Search for medicines, health products..."
-    className="p-3 rounded-lg w-1/3 outline-none border border-black text-white  "
+    className="p-3 rounded-lg w-full md:w-1/3 outline-none border bg-gray-800 border-black text-white  "
     onChange={(e) => setSearch(e.target.value)}
   
   />

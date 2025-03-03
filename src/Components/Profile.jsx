@@ -8,6 +8,7 @@ const [profilePic, setProfilePic] = useState("https://static.vecteezy.com/system
 const [showDelete, setShowDelete] = useState(false);
 
 useEffect(() => {  
+    scrollTo(0, 0);
       const savedPic = localStorage.getItem("profilePic");
     if (savedPic) {
       setProfilePic(savedPic);

@@ -7,6 +7,7 @@ const Cart = () => {
   const [showCheckout, setCheckout] = useState(false);
 
   useEffect(() => {
+    scrollTo(0, 0);
     if (!localStorage.getItem("isLoggedIn")) {
       navigate("/login");
       return;
