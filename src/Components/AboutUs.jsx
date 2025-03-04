@@ -1,6 +1,7 @@
 import React from "react";
 
 const AboutUs = () => {
+    scrollTo(0,0);
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center py-12 px-6">
       <h1 className="text-4xl font-bold text-blue-600 mb-6">About Us</h1>
