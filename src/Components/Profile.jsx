@@ -57,8 +57,8 @@ const LogOut=()=>{
 }
 
   return (
-    <div className='flex flex-col items-center min-h-screen bg-gradient-to-r from-gray-500 to-indigo-950'>
-<div className='flex flex-col space-y-4 py-5 bg-white rounded-lg p-10 mt-5'>
+    <div className='flex flex-col items-center h-fit bg-gradient-to-r from-gray-300 to-gray-400'>
+<div className='flex flex-col space-y-4  bg-white rounded-lg p-10 mt-5 mb-5'>
     <h1 className='text-white bg-pink-950 rounded-2xl text-center text-2xl'>Profile</h1>
     <img src={profilePic} alt="profile photo"  className='rounded-full w-44 h-44 object-cover aspect-square  m-auto mb-4 border-4 border-green-500'/>
     <div className='flex justify-center mb-10'>

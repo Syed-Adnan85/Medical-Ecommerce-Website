@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-md py-4">
-      <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-2">
         <NavLink to="/" className="text-2xl font-bold text-blue-600">
           MedStore
         </NavLink>
@@ -44,13 +44,14 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-6 text-lg font-semibold">
           <NavLink to="/" className="text-gray-700 hover:text-blue-600">Home</NavLink>
           <NavLink to="/products" className="text-gray-700 hover:text-blue-600">Products</NavLink>
+          <NavLink to="/about" className="text-gray-700 hover:text-blue-600">About Us</NavLink>
           <NavLink to="/contact" className="text-gray-700 hover:text-blue-600">Contact</NavLink>
         </div>
 
         <div className="flex items-center space-x-6">
           <NavLink to="/cart" className="relative text-gray-700 hover:text-blue-600">
             <i className="ri-shopping-cart-fill text-2xl"></i>
-            {cartCount > 0 && (
+            {isLoggedIn && cartCount > 0 && (
               <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-2">
                 {cartCount}
               </span>
@@ -83,7 +84,7 @@ const Navbar = () => {
           onClick={()=> setIsMenuOpen(false)}
         >
           <div
-            className={`fixed top-0 right-0 h-full bg-gray-800 shadow-md transition-transform transform ${
+            className={`fixed top-0 right-0 h-full bg-white shadow-md transition-transform transform ${
               isMenuOpen ? "translate-x-0" : "translate-x-full"
             } w-64 z-50`}
           >
@@ -93,9 +94,10 @@ const Navbar = () => {
             >
               <i className="ri-close-fill text-3xl"></i>
             </button>
-            <div className="flex flex-col  items-center text-white text-xl space-y-6 mt-42">
+            <div className="flex flex-col  items-center text-black font-semibold text-xl space-y-6 mt-42">
               <NavLink to="/" className=" hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
               <NavLink to="/products" className=" hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Products</NavLink>
+              <NavLink to="/about" className=" hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>About us</NavLink>
               <NavLink to="/contact" className=" hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
             </div>
           </div>

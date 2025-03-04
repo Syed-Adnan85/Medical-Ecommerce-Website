@@ -9,6 +9,7 @@ import ProductInfo from "./Components/ProductInfo";
 import Profile from "./Components/Profile";
 import Cart from "./Components/Cart";
 import Contact from "./Components/Contact";
+import AboutUs from "./Components/AboutUs";
 import Footer from "./Components/Footer";
 
 
@@ -36,6 +37,7 @@ import Footer from "./Components/Footer";
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<Cart/>}/>
       </Routes>
 <Footer />
