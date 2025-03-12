@@ -7,6 +7,7 @@ const Products = ({sendData}) => {
 
   const [cartItems, setCartItems] = useState([]);
   const [search, setSearch] = useState("");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
   
   useEffect(() => {
     scrollTo(0, 0);
@@ -29,7 +30,7 @@ const Products = ({sendData}) => {
 
     const navigate=useNavigate();
 const AddtoCart = (product) => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
   if (!isLoggedIn) {
   navigate("/login");
   
@@ -42,6 +43,18 @@ const AddtoCart = (product) => {
       window.dispatchEvent(new Event("cartUpdated"));
   }
 };
+const categories = [
+  "All",
+  "Medicines",
+  "Supplements",
+  "Personal Care",
+  "Health Devices",
+  "Baby Care",
+  "Skin Care",
+  "Fitness & Wellness",
+  "Ayurvedic & Herbal",
+  "Diabetic Care",
+];
 
   return (
     <div className="flex flex-col pt-10 bg-gray-100">
@@ -57,13 +70,21 @@ const AddtoCart = (product) => {
   
   />
 </div>
-      <div className="flex flex-wrap justify-center gap-6 mb-6">
-        <button className="bg-blue-500 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-blue-600" onClick={()=>setSelectedCategory("All")}  >All</button> 
-        <button className="bg-blue-500 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-blue-600" onClick={()=>setSelectedCategory("Medicines")}  >Medicines</button> 
-        <button className="bg-blue-500 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-blue-600" onClick={()=>setSelectedCategory("Personal Care")}  >Personal Care</button>
-        <button className="bg-blue-500 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-blue-600" onClick={()=>setSelectedCategory("Supplements")}  >Supplements</button>
-        <button className="bg-blue-500 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-blue-600" onClick={()=>setSelectedCategory("Health Devices")}  >Health Devices</button>
-      </div>
+
+
+<div className="flex flex-wrap justify-center gap-6 mb-6">
+  {categories.map((category) => (
+    <button
+      key={category}
+      className="bg-blue-500 rounded-lg text-white px-4 py-2 cursor-pointer hover:bg-blue-600"
+      onClick={() => setSelectedCategory(category)}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
+
       <div className="flex flex-wrap justify-center gap-6 mb-6">
        { filterProducts.length > 0 ? (
 
@@ -84,7 +105,7 @@ const AddtoCart = (product) => {
 
               <p className="text-green-400">In Stock</p>
               
-              {cartItems.some((item) => item.id === product.id) ? (
+              {isLoggedIn && cartItems.some((item) => item.id === product.id) ? (
                   <button
                     className="mt-3 bg-gray-500 text-white px-4 py-2 w-full rounded-lg cursor-pointer hover:bg-gray-600"
                     onClick={() => navigate("/cart")}

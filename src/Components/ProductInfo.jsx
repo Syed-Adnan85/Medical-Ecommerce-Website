@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 const ProductInfo = ({ getData }) => {
   const navigate = useNavigate();
+
   const [inCart, setInCart] = useState(false);
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   useEffect(() => {
     scrollTo(0, 0);
@@ -12,7 +14,7 @@ const ProductInfo = ({ getData }) => {
   }, [getData.id]);
 
   const AddtoCart = () => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
+ 
     if (!isLoggedIn) {
       navigate("/login");
       return;
@@ -40,12 +42,23 @@ const ProductInfo = ({ getData }) => {
         {getData.stock ? (
           <>
             <p className="text-green-500">In Stock</p>
-            <button
-              className={`mt-3 text-white px-4 py-2 w-full md:w-1/3 rounded-lg cursor-pointer ${inCart ? "bg-gray-700 hover:bg-gray-800" : "bg-blue-500 hover:bg-blue-600"}`}
-              onClick={AddtoCart}
-            >
-              {inCart ? "✅ Added (Go to Cart)" : "Add to Cart"}
-            </button>
+            {isLoggedIn && inCart ? (
+                  <button
+                    className="mt-3 bg-gray-500 text-white px-4 py-2 w-full md:w-1/3 rounded-lg cursor-pointer hover:bg-gray-600"
+                    onClick={() => navigate("/cart")}
+                  >
+                    ✅ Added (Go to Cart)
+                  </button>
+                ) : (
+                  <button
+                    className="mt-3  bg-blue-500 text-white px-4 py-2 w-full md:w-1/3 rounded-lg cursor-pointer hover:bg-blue-600"
+                    onClick={AddtoCart}
+                  >
+                    Add to Cart
+                  </button>
+                )}
+
+           
           </>
         ) : (
           <p className="text-red-500">Out of Stock</p>
