@@ -27,7 +27,7 @@ const  navigate=useNavigate();
             <div
             key={index}
             onClick={() => sendData(category.title)}
-            className="flex flex-col gap-5 items-center w-52 bg-white p-4 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+            className="flex flex-col gap-5 items-center w-52 bg-white pb-3  rounded-lg shadow-md hover:shadow-lg cursor-pointer">
             <img
                 src={category.image}
                 alt={category.title}
@@ -50,7 +50,7 @@ const  navigate=useNavigate();
             <NavLink 
             to="/productinfo"
             key={index}
-            className="bg-white shadow-md rounded-lg p-2 text-center hover:shadow-lg "
+            className="bg-white shadow-md rounded-lg pb-3 text-center hover:shadow-lg "
             onClick={() => sendToInfo(product)}
             >
               <img src={product.image} alt={product.name} className="w-full md:h-52 object-cover  rounded-lg mb-3" />
@@ -80,7 +80,7 @@ const  navigate=useNavigate();
           <NavLink
           to="/productinfo"
           onClick={() => sendToInfo(deal)}
-          key={index} className="bg-white shadow-md rounded-lg p-2 text-center hover:shadow-lg space-x-2 ">
+          key={index} className="bg-white shadow-md rounded-lg pb-3 text-center hover:shadow-lg space-x-2 ">
             <img src={deal.image} alt={deal.name} className="w-full md:h-52 object-cover rounded-lg mb-3" />
             <h3 className="text-lg font-semibold">{deal.name}</h3>
             <p className="text-gray-600">₹{deal.price}</p>
