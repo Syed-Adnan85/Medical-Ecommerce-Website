@@ -14,7 +14,7 @@ const  navigate=useNavigate();
 
   return (
     <div className="bg-gray-100	 min-h-screen  flex flex-col">
-    <Banner />
+    <Banner/>
     <section className="container mx-auto my-10 px-4">
       <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
         Shop by Categories
@@ -27,7 +27,8 @@ const  navigate=useNavigate();
             <div
             key={index}
             onClick={() => sendData(category.title)}
-            className="flex flex-col gap-5 items-center w-52 bg-white pb-3  rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+            className="flex flex-col gap-10 items-center w-52 bg-white pb-3  rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+          
             <img
                 src={category.image}
                 alt={category.title}
@@ -50,12 +51,15 @@ const  navigate=useNavigate();
             <NavLink 
             to="/productinfo"
             key={index}
-            className="bg-white shadow-md rounded-lg pb-3 text-center hover:shadow-lg "
+            className="bg-white shadow-md rounded-lg pb-3 text-center  hover:shadow-lg "
             onClick={() => sendToInfo(product)}
             >
+              
               <img src={product.image} alt={product.name} className="w-full md:h-52 object-cover  rounded-lg mb-3" />
-              <h3 className="text-lg font-semibold">{product.name}</h3>
-              <p className="text-gray-600">₹{product.price}</p>
+              <div className='text-left mb-3'>
+              <h3 className="text-lg font-semibold ml-3">{product.name}</h3>
+              <p className="text-gray-600 ml-3">₹{product.price}</p>
+              </div>
               <button className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 cursor-pointer--">
                 Check Now
               </button>
@@ -80,11 +84,13 @@ const  navigate=useNavigate();
           <NavLink
           to="/productinfo"
           onClick={() => sendToInfo(deal)}
-          key={index} className="bg-white shadow-md rounded-lg pb-3 text-center hover:shadow-lg space-x-2 ">
+          key={index} className="relative bg-white shadow-md rounded-lg pb-3 text-center hover:shadow-lg space-x-2 ">
+            <div className="absolute top-0 left-0 bg-red-500 text-white px-2 py-1 rounded-tr-lg rounded-bl-lg">
+              {deal.discount}
+            </div>
             <img src={deal.image} alt={deal.name} className="w-full md:h-52 object-cover rounded-lg mb-3" />
             <h3 className="text-lg font-semibold">{deal.name}</h3>
             <p className="text-gray-600">₹{deal.price}</p>
-            <span className="text-red-500 font-bold">{deal.discount}</span>
             <button className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 cursor-pointer">
               Grab Now
             </button>
@@ -102,4 +108,3 @@ const  navigate=useNavigate();
 
 export default Home
 
- 

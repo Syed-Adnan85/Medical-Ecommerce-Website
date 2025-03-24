@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate, NavLink } from "react-router-dom";
+
 
 const SignUp = () => {
   scrollTo(0, 0);
@@ -26,6 +27,11 @@ const SignUp = () => {
 
   return (
     <div className='bg-gradient-to-r from-green-300 to-gray-500 flex justify-center items-center min-h-screen'>
+      <div className="absolute top-4 left-4">
+        <NavLink to="/" className="text-white font-semibold">
+          <i className="ri-arrow-left-line text-2xl"></i>
+        </NavLink>
+      </div>
       <div className='bg-white p-10 rounded-lg shadow-lg w-96'>
         <h2 className='text-3xl font-bold text-center text-gray-500'>Sign Up</h2>
         <p className='text-sm text-center text-gray-500'>Create an account to continue</p>
@@ -47,4 +53,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignUp;

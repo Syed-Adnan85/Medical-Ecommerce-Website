@@ -87,7 +87,12 @@ const categories = [
 
       filterProducts.map((product, index) => (
 
-      <div key={index} className="bg-white flex flex-col pb-2 items-center rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+      <div key={index} className="relative bg-white flex flex-col pb-2 items-center rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+            {product.stock ? (
+              <span className="absolute top-2 left-2 bg-green-400 text-white px-2 py-1 rounded">In Stock</span>
+            ) : (
+              <span className="absolute top-2 left-2 bg-red-400 text-white px-2 py-1 rounded">Out of Stock</span>
+            )}
               <NavLink to="/productinfo" key={index}
         onClick={()=>sendData(product)}
         >
@@ -98,17 +103,16 @@ const categories = [
             </NavLink>
             {product.stock ? (
               <>
-                <p className="text-green-400">In Stock</p>
                 {isLoggedIn && cartItems.some((item) => item.id === product.id) ? (
                   <button
-                    className="mt-3 bg-gray-500 text-white py-2 w-full rounded-lg cursor-pointer hover:bg-gray-600"
+                    className="mt-3 bg-gray-500 text-white py-2 px-4 w-fit rounded-lg cursor-pointer hover:bg-gray-600"
                     onClick={() => navigate("/cart")}
                   >
                     ✅ Added (Go to Cart)
                   </button>
                 ) : (
                   <button
-                    className="mt-3 bg-blue-500 text-white py-2 w-full rounded-lg cursor-pointer hover:bg-blue-600"
+                    className="mt-3 bg-blue-500 text-white py-2 px-4 w-fit rounded-lg cursor-pointer hover:bg-blue-600"
                     onClick={() => AddtoCart(product)}
                   >
                     Add to Cart
@@ -116,15 +120,12 @@ const categories = [
                 )}
               </>
             ) : (
-              <>
-                <p className="text-red-400">Out of Stock</p>
-                <button
-                  className="mt-3 bg-blue-400 text-white py-2 w-full rounded-lg cursor-not-allowed"
-                  disabled
-                >
-                  Add to Cart
-                </button>
-              </>
+              <button
+                className="mt-3 bg-blue-400 text-white py-2 px-4 w-fit rounded-lg cursor-not-allowed"
+                disabled
+              >
+                Add to Cart
+              </button>
             )}
         
           </div> 

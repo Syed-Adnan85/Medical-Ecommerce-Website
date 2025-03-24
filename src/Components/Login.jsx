@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+
 
 const Login = () => {
   scrollTo(0, 0);
@@ -33,10 +34,14 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-600 to-purple-600">
+      <div className="absolute top-4 left-4">
+        <NavLink to="/" className="text-white font-semibold">
+          <i className="ri-arrow-left-line text-2xl"></i>
+        </NavLink>
+      </div>
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-3xl font-bold text-center text-gray-800">Login</h2>
         <p className="text-sm text-center text-gray-500 mb-4">Sign in to your account</p>
-
 
         {error && <p className="text-red-500 text-center mb-3">{error}</p>}
 
@@ -49,6 +54,7 @@ const Login = () => {
         <p className="text-center mt-4 text-sm text-gray-500">
           Don't have an account? <a href="/signup" className="text-purple-600 font-semibold">Sign Up</a>
         </p>
+      
       </div>
     </div>
   );

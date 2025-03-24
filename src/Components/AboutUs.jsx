@@ -4,6 +4,11 @@ const AboutUs = () => {
     scrollTo(0,0);
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center py-12 px-6">
+      <img
+        src="https://img.freepik.com/free-vector/communication-flat-icon_1262-18771.jpg?t=st=1742819903~exp=1742823503~hmac=1b8f5eab6ec00439cff28b388279812508875cf5d3a7031e790e125069ad4d01&w=826"
+        alt="About Us"
+        className=" md:w-1/3 md:h-1/3 rounded-2xl md:max-w-4xl mb-6"
+      />
       <h1 className="text-4xl font-bold text-blue-600 mb-6">About Us</h1>
 
       <p className="text-lg text-gray-700 text-center max-w-3xl">
