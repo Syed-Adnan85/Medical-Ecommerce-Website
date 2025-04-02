@@ -237,6 +237,52 @@ const ProductsList = [
       description: "Zero-calorie artificial sweetener tablets, ideal for diabetic patients and health-conscious individuals. Helps maintain blood sugar levels while enjoying sweet flavors in beverages and food.",
       stock: true
   }
+  ,
+  {
+      id: 21,
+      name: "Pain Relief Spray",
+      brand: "Volini",
+      category: "Fitness & Wellness",
+      price: 120,
+      expiry: "Oct 2026",
+      image: "https://images.pexels.com/photos/17605643/pexels-photo-17605643/free-photo-of-spray-painkiller-in-black-bottle.jpeg?auto=compress&cs=tinysrgb&w=600",
+      description: "A fast-acting spray for instant relief from muscle pain, joint stiffness, and inflammation. Formulated with active ingredients to provide long-lasting comfort and mobility.",
+      stock: true
+  },
+
+  {
+      id: 22,
+      name: "Herbal Tea",
+      brand: "Organic India",
+      category: "Ayurvedic & Herbal",
+      price: 250,
+      expiry: "Nov 2026",
+      image: "https://media.istockphoto.com/id/990242644/photo/like-tea.jpg?s=612x612&w=0&k=20&c=jd2hHl_Qu9UlrGWBmNVoaQozAw5p1zbHkdEkT6BYU0c=",
+      description: "A soothing blend of organic herbs and spices to relax the mind, improve digestion, boost immunity, and promote overall wellness. Caffeine-free and rich in antioxidants for a healthy lifestyle.",
+      stock: true
+  },
+
+  {
+      id: 23,
+      name: "Omega-3 Capsules",
+      brand: "Amway Nutrilite",
+      category: "Supplements",
+      price: 800,
+      expiry: "Jan 2027",
+      image: "https://images.pexels.com/photos/7615567/pexels-photo-7615567.jpeg?auto=compress&cs=tinysrgb&w=600",
+      description: "Essential fatty acid capsules derived from fish oil to support heart health, brain function, joint mobility, and overall vitality. Provides the recommended daily dose of omega-3 for optimal well-being.",
+      stock: true
+  },
+
+  {
+      id: 24,
+      name: "Hair Growth Oil",
+      brand: "Indulekha",
+      category: "Personal Care",
+      price: 350,
+      expiry: "Feb 2026",
+      image: "https://media.istockphoto.com/id/2148447954/photo/natural-spray-for-hair-growth-with-herbs-in-hands.jpg?s=612x612&w=0&k=20&c=iCsilXDSEft0V5coTpG18FTXS5S7GczKRJelXvxZas8="
+  }
   ];
   
 
