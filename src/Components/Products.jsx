@@ -85,21 +85,27 @@ const categories = [
       <div className="flex flex-wrap justify-center gap-6 mb-6 ">
        { filterProducts.length > 0 ? (
 
-      filterProducts.map((product, index) => (
+      filterProducts.map((product, index) => {
+        const price = parseFloat(product.price) || 0; 
+        const discountPercentage = parseFloat(product.discount) || 0; 
+        const discountedPrice = price - (price * discountPercentage) / 100;
 
-      <div key={index} className="relative bg-white flex flex-col pb-2 items-center rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+        return (
+          <div key={index} className="relative bg-white flex flex-col pb-2 items-center rounded-lg shadow-md hover:shadow-lg cursor-pointer">
             {product.stock ? (
               <span className="absolute top-2 left-2 bg-green-400 text-white px-2 py-1 rounded">In Stock</span>
             ) : (
               <span className="absolute top-2 left-2 bg-red-400 text-white px-2 py-1 rounded">Out of Stock</span>
             )}
-              <NavLink to="/productinfo" key={index}
-        onClick={()=>sendData(product)}
-        >
-            <img src={product.image} alt={product.name} className="w-60 h-52 object-cover rounded-lg" />
-            <h3 className="text-lg pl-3 pt-3  font-semibold">{product.name}</h3>
-            <p className="text-gray-600 pl-3 pt-1">₹{product.price}</p>
-           
+            <NavLink to="/productinfo" key={index} onClick={() => sendData(product)}>
+              <img src={product.images[0]} alt={product.name} className="w-60 h-52 object-cover rounded-lg" />
+              <h3 className="text-lg pl-3 pt-3 font-semibold">{product.name}</h3>
+              <div className="pl-3 pt-1">
+                <p className="text-gray-600 line-through">₹{price.toFixed(2)}</p>
+                <p className="text-gray-800 font-bold">₹{discountedPrice.toFixed(2)}</p>
+                <p className="text-green-600">{discountPercentage}% off</p>
+              </div>
+              <p className="text-gray-600 pl-3 pt-1">{product.category}</p>
             </NavLink>
             {product.stock ? (
               <>
@@ -127,10 +133,9 @@ const categories = [
                 Add to Cart
               </button>
             )}
-        
-          </div> 
-          
-        ))
+          </div>
+        );
+      })
        ) : (
         <p className="text-center text-gray-500 w-full">No products found.</p>
        )

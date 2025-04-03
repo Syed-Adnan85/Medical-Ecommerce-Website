@@ -6,6 +6,7 @@ const ProductInfo = ({ getData }) => {
 
   const [inCart, setInCart] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); 
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   useEffect(() => {
@@ -36,12 +37,35 @@ const ProductInfo = ({ getData }) => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
+  const ImageSwitch = (index) => {
+    setCurrentImageIndex(index);
+  };
+
   return (
     <div className="flex flex-col items-center min-h-fit pt-10 bg-gray-100">
       <div className="p-6 mb-14 space-y-3 bg-white shadow-lg rounded-lg w-full max-w-4xl">
         <h1 className="text-3xl text-center text-gray-800 font-bold mb-5">Product Information</h1>
-        <div className="flex flex-col md:flex-row">
-          <img src={getData.image} alt={getData.name} className="rounded-xl w-full md:w-1/2 h-64 object-cover mb-5 md:mb-0 md:mr-5" />
+        <div className="flex flex-col gap-4 md:flex-row">
+          <div className="relative w-full md:w-1/2">
+            <img
+              src={getData.images[currentImageIndex]} 
+              alt={getData.name}
+              className="rounded-xl w-full h-64 object-cover mb-5 md:mb-0"
+            />
+            <div className="flex justify-center mt-2 space-x-2">
+              {getData.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Thumbnail ${index + 1}`}
+                  className={`w-12 h-12 object-cover rounded-lg cursor-pointer ${
+                    currentImageIndex === index ? "border-2 border-blue-500" : "border"
+                  }`}
+                  onClick={() => ImageSwitch(index)}
+                />
+              ))}
+            </div>
+          </div>
           <div className="flex flex-col justify-between w-full md:w-1/2">
             <div>
               <h3 className="text-2xl text-gray-800 font-semibold">{getData.name}</h3>
@@ -54,7 +78,7 @@ const ProductInfo = ({ getData }) => {
             {getData.stock && !inCart && (
               <div className="mb-5 flex items-center">
                 <button
-                  className="bg-gray-300 text-gray-800 px-3 py-1 rounded-l-lg"
+                  className="bg-gray-300 text-gray-800 px-3 py-1 rounded-l-lg cursor-pointer"
                   onClick={decreaseQuantity}
                 >
                   -
@@ -66,7 +90,7 @@ const ProductInfo = ({ getData }) => {
                   readOnly
                 />
                 <button
-                  className="bg-gray-300 text-gray-800 px-3 py-1 rounded-r-lg"
+                  className="bg-gray-300 text-gray-800 px-3 py-1 rounded-r-lg cursor-pointer"
                   onClick={increaseQuantity}
                 >
                   +
