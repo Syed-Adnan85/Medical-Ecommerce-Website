@@ -1,97 +1,107 @@
 import React from "react";
 
 const AboutUs = () => {
-    scrollTo(0,0);
-  return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center py-12 px-6">
-      <img
-        src="https://img.freepik.com/free-vector/communication-flat-icon_1262-18771.jpg?t=st=1742819903~exp=1742823503~hmac=1b8f5eab6ec00439cff28b388279812508875cf5d3a7031e790e125069ad4d01&w=826"
-        alt="About Us"
-        className=" md:w-1/3 md:h-1/3 rounded-2xl md:max-w-4xl mb-6"
-      />
-      <h1 className="text-4xl font-bold text-blue-600 mb-6">About Us</h1>
+    scrollTo(0, 0);
+    return (
+        <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen">
+           
+            <div className="flex flex-col md:flex-row items-center justify-between px-8 py-16 max-w-7xl mx-auto">
+                <div className="text-center md:text-left md:w-1/2 ">
+                    <h1 className="text-5xl font-bold text-blue-700 mb-6">About Us</h1>
+                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                        We are a passionate team dedicated to providing high-quality healthcare products and services. 
+                        Our mission is to make healthcare accessible, affordable, and convenient for everyone.
+                    </p>
+                    <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700">
+                        Learn More
+                    </button>
+                </div>
+                <div className="mt-8 md:mt-0 md:w-1/2">
+                    <img
+                        src="https://t4.ftcdn.net/jpg/06/80/57/03/240_F_680570399_EKoKoK0rndKmijRE0n3Jmq3VbQ6hElK7.jpg"
+                        alt="About Us Illustration"
+                        className="w-full max-w-md mx-auto md:mx-0"
+                    />
+                </div>
+            </div>
 
-      <p className="text-lg text-gray-700 text-center max-w-3xl">
-        Welcome to <span className="font-bold">MedStore</span>, your trusted online medical store. 
-        Our mission is to provide high-quality medicines and healthcare products at affordable prices, 
-        ensuring customer satisfaction and well-being.
-      </p>
+            {/* Content Section */}
+            <div className="px-8 py-16 max-w-6xl mx-auto">
+                <section className="mb-16">
+                    <h2 className="text-4xl font-bold text-blue-600 mb-6">Who We Are</h2>
+                    <p className="text-gray-700 leading-relaxed">
+                        At <span className="font-bold">MedStore</span>, we are committed to revolutionizing the healthcare industry. 
+                        With a focus on quality, affordability, and innovation, we aim to be your trusted partner in health and wellness.
+                    </p>
+                </section>
 
-      <div className="bg-white p-8 rounded-lg shadow-md mt-8 max-w-4xl">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Mission</h2>
-        <p className="text-gray-700">
-          Our goal is to make healthcare products accessible to everyone with the ease of online shopping. 
-          We offer a wide range of products, including prescription medicines, personal care, 
-          health devices, and supplements.
-        </p>
-      </div>
+                <section className="mb-16">
+                    <h2 className="text-4xl font-bold text-blue-600 mb-6">Our Mission</h2>
+                    <p className="text-gray-700 leading-relaxed">
+                        Our mission is to make healthcare products accessible to everyone, regardless of their location or financial situation. 
+                        We strive to provide a seamless online shopping experience with a wide range of products and exceptional customer service.
+                    </p>
+                </section>
 
-      <div className="bg-white p-8 rounded-lg shadow-md mt-8 max-w-4xl">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Vision</h2>
-        <p className="text-gray-700">
-          We envision a world where everyone has access to the healthcare products they need, 
-          regardless of their location or financial situation. We strive to be a leader in the 
-          online medical retail industry by continuously improving our services and expanding our product range.
-        </p>
-      </div>
+                <section className="mb-16">
+                    <h2 className="text-4xl font-bold text-blue-600 mb-6">Why Choose Us</h2>
+                    <ul className="list-disc list-inside text-gray-700 leading-relaxed">
+                        <li>High-quality products sourced from trusted manufacturers.</li>
+                        <li>Affordable pricing to make healthcare accessible to everyone.</li>
+                        <li>Fast and reliable delivery services.</li>
+                        <li>Exceptional customer support to assist you at every step.</li>
+                        <li>Commitment to innovation and continuous improvement.</li>
+                    </ul>
+                </section>
 
-      <div className="bg-white p-8 rounded-lg shadow-md mt-8 max-w-4xl">
-        <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Values</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Customer Satisfaction: We prioritize our customers' needs and work tirelessly to meet their expectations.</li>
-          <li>Quality: We ensure that all our products meet the highest standards of quality and safety.</li>
-          <li>Integrity: We conduct our business with honesty and transparency.</li>
-          <li>Innovation: We embrace new technologies and ideas to improve our services.</li>
-        </ul>
-      </div>
+                {/* Team Section */}
+                <section className="mt-16">
+                    <h2 className="text-4xl font-bold text-blue-600 text-center mb-10">Meet Our Team</h2>
+                    <div className="flex flex-wrap justify-center gap-10">
+                        <div className="bg-white p-8 rounded-xl shadow-lg text-center w-72">
+                            <img
+                                src="https://images.pexels.com/photos/8353841/pexels-photo-8353841.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                alt="Team Member"
+                                className="rounded-full mx-auto mb-6 w-28 h-28 object-cover shadow-md"
+                            />
+                            <h3 className="text-2xl font-semibold">John Doe</h3>
+                            <p className="text-gray-600">Founder & CEO</p>
+                        </div>
 
-      <div className="mt-12">
-        <h2 className="text-3xl font-bold text-blue-600 text-center mb-6">Meet Our Team</h2>
-        <div className="flex flex-wrap justify-center gap-8">
-       
-          <div className="bg-white p-6 rounded-lg shadow-md text-center w-64">
-            <img
-              src="https://images.pexels.com/photos/8353841/pexels-photo-8353841.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Team Member"
-              className="rounded-full mx-auto mb-4 w-24 h-24 object-cover"
-            />
-            <h3 className="text-xl font-semibold">John Doe</h3>
-            <p className="text-gray-600">Founder & CEO</p>
-          </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md text-center w-64">
-            <img
-              src="https://images.pexels.com/photos/7841434/pexels-photo-7841434.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Team Member"
-              className="rounded-full mx-auto mb-4 w-24 h-24 object-cover"
-            />
-            <h3 className="text-xl font-semibold">Jane Smith</h3>
-            <p className="text-gray-600">Head of Operations</p>
-          </div>
-       
-          <div className="bg-white p-6 rounded-lg shadow-md text-center w-64">
-            <img
-              src="https://images.pexels.com/photos/7875844/pexels-photo-7875844.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Team Member"
-              className="rounded-full mx-auto mb-4 w-24 h-24 object-cover"
-            />
-            <h3 className="text-xl font-semibold">Michael Brown</h3>
-            <p className="text-gray-600">Marketing Manager</p>
-          </div>
-       
-          <div className="bg-white p-6 rounded-lg shadow-md text-center w-64">
-            <img
-              src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Team Member"
-              className="rounded-full mx-auto mb-4 w-24 h-24 object-cover"
-            />
-            <h3 className="text-xl font-semibold">Emily Davis</h3>
-            <p className="text-gray-600">Customer Support Lead</p>
-          </div>
+                        <div className="bg-white p-8 rounded-xl shadow-lg text-center w-72">
+                            <img
+                                src="https://images.pexels.com/photos/7841434/pexels-photo-7841434.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                alt="Team Member"
+                                className="rounded-full mx-auto mb-6 w-28 h-28 object-cover shadow-md"
+                            />
+                            <h3 className="text-2xl font-semibold">Jane Smith</h3>
+                            <p className="text-gray-600">Head of Operations</p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-xl shadow-lg text-center w-72">
+                            <img
+                                src="https://images.pexels.com/photos/7875844/pexels-photo-7875844.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                alt="Team Member"
+                                className="rounded-full mx-auto mb-6 w-28 h-28 object-cover shadow-md"
+                            />
+                            <h3 className="text-2xl font-semibold">Michael Brown</h3>
+                            <p className="text-gray-600">Marketing Manager</p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-xl shadow-lg text-center w-72">
+                            <img
+                                src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                alt="Team Member"
+                                className="rounded-full mx-auto mb-6 w-28 h-28 object-cover shadow-md"
+                            />
+                            <h3 className="text-2xl font-semibold">Emily Davis</h3>
+                            <p className="text-gray-600">Customer Support Lead</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default AboutUs;
